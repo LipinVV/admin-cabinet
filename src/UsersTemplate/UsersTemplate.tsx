@@ -9,7 +9,7 @@ type userProps = {
     onDeleteUser: (id: number) => Promise<void>,
 }
 
-export const UsersTemplate = ({users}: userProps) => {
+export const UsersTemplate = ({users, onDeleteUser}: userProps) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const PAGE_SIZE = 4;
@@ -28,7 +28,11 @@ export const UsersTemplate = ({users}: userProps) => {
 
     useEffect(() => {
         setFilteredUsers(users)
-    }, [users,currentPhotosOnThePage])
+    }, [users])
+
+    useEffect(() => {
+
+    }, [currentPhotosOnThePage])
 
 
     const inputFilterHandler = (inputValue: string, allUsers: userCard[]) => {
@@ -67,6 +71,7 @@ export const UsersTemplate = ({users}: userProps) => {
                             phone={user.phone}
                             website={user.website}
                             company={user.company}
+                            onDeleteUser={onDeleteUser}
                         />
                     )
                 })}

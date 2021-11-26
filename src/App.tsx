@@ -40,20 +40,8 @@ function App() {
         }
     }
 
-    const fetchUsersTest = async () => {
-        try {
-            await fetch('https://jsonplaceholder.typicode.com/users')
-                .then((response: any) => console.log(response.json()))
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
-    console.log(users)
-
     useEffect(() => {
         fetchUsers();
-        fetchUsersTest()
     }, [])
 
     const onAddUser = async (name: string, email: string) => {
