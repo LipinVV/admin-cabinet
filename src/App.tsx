@@ -75,15 +75,15 @@ function App() {
 
     const onDeleteUser = async (id: number) => {
         try {
-            await fetch(`https://jsonplaceholder.typicode.com/albums/1/photos?id=${id}`, {
+            await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
                 method: 'DELETE'
             })
                 .then((response: any) => {
-                    if (response.status !== 201) {
+                    if (response.status !== 200) {
                         return
                     } else {
-                        setUsers(users.filter(photo => {
-                            return photo.id !== id;
+                        setUsers(users.filter(user => {
+                            return user.id !== id;
                         }))
                     }
                 })

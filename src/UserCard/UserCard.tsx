@@ -20,7 +20,7 @@ export const UserCard = ({name, username, id, email, onDeleteUser}: userCardProp
             <span>{email}</span>
             <span>
                 <button>Изменить</button>
-                <button >Удалить</button>
+                <button onClick={handleDelete}>Удалить</button>
             </span>
         </div>
     )

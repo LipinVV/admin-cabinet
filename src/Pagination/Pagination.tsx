@@ -10,7 +10,7 @@ type paginationProps = {
 }
 
 export const Pagination = ({handleClickDecrease, handleClickIncrease, currentPage, users, indexOfLastItem}: paginationProps) => {
-console.log(indexOfLastItem, users.length)
+
     return (
         <div>
             <section className='pagination__control-buttons'>
@@ -25,7 +25,7 @@ console.log(indexOfLastItem, users.length)
                     className='pagination__control-button'
                     type='button'
                     onClick={handleClickIncrease}
-                    disabled={indexOfLastItem > users.length}
+                    disabled={indexOfLastItem >= users.length}
                 >Next page
                 </button>
                 <span className='pagination__current-page'>current page is: {currentPage}</span>
