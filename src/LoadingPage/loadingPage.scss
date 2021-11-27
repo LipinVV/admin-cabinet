@@ -1,0 +1,29 @@
+@import "src/App";
+
+.loading-cards__cards {
+  display: flex;
+  grid-gap: 10px;
+  width: 100%;
+  padding: 40px 20px 20px;
+  margin: 0 auto;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loading-cards__card {
+  display: grid;
+  width: 300px;
+  height: 400px;
+  padding: 10px;
+  grid-template-rows: repeat(5, 1fr);
+  background-color: black;
+  align-self: center;
+  justify-self: center;
+}
+
+.loading-cards__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

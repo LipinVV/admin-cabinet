@@ -8,18 +8,17 @@ type userProps = {
     users: userCard[],
     onDeleteUser: (id: number) => Promise<void>,
     onUpdateUser:  (id: number, name: string, email: string) => Promise<void>,
-    userToChange: React.SetStateAction<number | null>,
 }
 
-export const UsersTemplate = ({users, onDeleteUser, onUpdateUser, userToChange}: userProps) => {
+export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) => {
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const PAGE_SIZE = 4;
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const PAGE_SIZE = 3;
 
     const indexOfLastItem = currentPage * PAGE_SIZE;
     const indexOfFirstItem = indexOfLastItem - PAGE_SIZE;
     const [filteredUsers, setFilteredUsers] = useState<userCard[]>([]);
-    const currentPhotosOnThePage = filteredUsers.slice(indexOfFirstItem, indexOfLastItem);
+    const currentUsersOnThePage = filteredUsers.slice(indexOfFirstItem, indexOfLastItem);
 
     const handleClickIncrease = () => {
         setCurrentPage(prevState => prevState + 1);
@@ -33,9 +32,11 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser, userToChange}:
     }, [users])
 
     useEffect(() => {
-
-    }, [currentPhotosOnThePage])
-
+        if (currentUsersOnThePage.length === 0) {
+            setCurrentPage(1);
+        }
+    }, [currentUsersOnThePage])
+    console.log(currentUsersOnThePage.length, PAGE_SIZE)
 
     const inputFilterHandler = (inputValue: string, allUsers: userCard[]) => {
         const filteredArray = allUsers.filter((user: userCard) => {
@@ -55,27 +56,26 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser, userToChange}:
             <label className='users__search-input'>
                 <input
                     type='text'
-                    placeholder='Search by a name...'
+                    placeholder='Поиск по имени...'
                     onChange={evt => inputFilterHandler(evt.target.value, users)}
                 />
             </label>
             <section className='users'>
-                {currentPhotosOnThePage.map((user: userCard) => {
+                {currentUsersOnThePage.map((user: userCard) => {
                     return (
                         <UserCard
-                            key={user.id}
                             id={user.id}
-                            name={user.name}
-                            username={user.username}
-                            email={user.email}
-                            address={user.address}
+                            key={user.id}
                             geo={user.geo}
+                            name={user.name}
+                            email={user.email}
                             phone={user.phone}
                             website={user.website}
+                            address={user.address}
                             company={user.company}
+                            username={user.username}
                             onDeleteUser={onDeleteUser}
                             onUpdateUser={onUpdateUser}
-                            userToChange={userToChange}
                         />
                     )
                 })}

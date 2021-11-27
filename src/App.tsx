@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {UsersTemplate} from "./UsersTemplate/UsersTemplate";
 import {UsersAdminPanel} from "./UsersAdminPanel/UsersAdminPanel";
 import './App.scss';
+import {LoadingPage} from "./LoadingPage/LoadingPage";
 
 export interface userCard {
     id: number,
@@ -29,7 +30,6 @@ export interface userCard {
 
 function App() {
     const [users, setUsers] = useState<userCard[]>([]);
-    const [userToChange, setUserToChange] = useState<React.SetStateAction<number | null>>(null);
 
     const fetchUsers = async () => {
         try {
@@ -107,7 +107,7 @@ function App() {
                 },
             })
                 .then((response: any) => {
-                    if(response.status) {
+                    if (response.status) {
                         setUsers(users.map(user => {
                             if (user.id === id) {
                                 return {
@@ -117,25 +117,26 @@ function App() {
                             return user;
                         }))
                     }
-                    setUserToChange(id);
                 })
         } catch (error) {
             console.error(error)
         }
     }
-    console.log(users)
+
     return (
         <div className="App">
             <UsersAdminPanel
-                users={users}
                 onAddUser={onAddUser}
             />
-            <UsersTemplate
-                users={users}
-                onDeleteUser={onDeleteUser}
-                onUpdateUser={onUpdateUser}
-                userToChange={userToChange}
-            />
+            {users.length !== 0 ?
+                <UsersTemplate
+                    users={users}
+                    onDeleteUser={onDeleteUser}
+                    onUpdateUser={onUpdateUser}
+                />
+                :
+                <LoadingPage/>
+            }
         </div>
     );
 }

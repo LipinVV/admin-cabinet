@@ -1,5 +1,6 @@
 import React from "react";
 import {userCard} from "../App";
+import './pagination.scss';
 
 type paginationProps = {
     handleClickDecrease: () => void,
@@ -12,23 +13,23 @@ type paginationProps = {
 export const Pagination = ({handleClickDecrease, handleClickIncrease, currentPage, users, indexOfLastItem}: paginationProps) => {
 
     return (
-        <div>
+        <div className='pagination'>
+            <div className='pagination__current-page'>Вы сейчас на: {currentPage} странице</div>
             <section className='pagination__control-buttons'>
                 <button
                     className='pagination__control-button'
                     type='button'
                     onClick={handleClickDecrease}
                     disabled={currentPage === 1}
-                >Previous page
+                >Назад
                 </button>
                 <button
                     className='pagination__control-button'
                     type='button'
                     onClick={handleClickIncrease}
                     disabled={indexOfLastItem >= users.length}
-                >Next page
+                >Далее
                 </button>
-                <span className='pagination__current-page'>current page is: {currentPage}</span>
             </section>
         </div>
     )

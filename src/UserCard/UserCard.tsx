@@ -5,17 +5,16 @@ import './userCard.scss';
 interface userCardProps extends userCard {
     onDeleteUser: (id: number) => Promise<void>,
     onUpdateUser: (id: number, name: string, email: string) => Promise<void>,
-    userToChange: React.SetStateAction<number | null>,
 }
 
-export const UserCard = ({name, username, id, email, onDeleteUser, onUpdateUser, userToChange}: userCardProps) => {
+export const UserCard = ({name, username, id, email, onDeleteUser, onUpdateUser}: userCardProps) => {
 
     const handleDelete = () => {
         return onDeleteUser(id)
     }
 
-    const [newName, setNewName] = useState('');
-    const [newEmail, setNewEmail] = useState('');
+    const [newName, setNewName] = useState(name);
+    const [newEmail, setNewEmail] = useState(email);
 
     const handleUpdate = () => {
         return onUpdateUser(id, newName, newEmail);
@@ -53,7 +52,9 @@ export const UserCard = ({name, username, id, email, onDeleteUser, onUpdateUser,
                     onClick={() => {
                         handleUpdate();
                         setRedactorStatus(false);
-                    }}>Сохранить</button>}
+                    }}>Сохранить
+                </button>
+                }
                 {!redactorStatus &&
                 <button
                     className='userCard__button'
