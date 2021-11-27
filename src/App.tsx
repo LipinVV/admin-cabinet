@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {UsersTemplate} from "./UsersTemplate/UsersTemplate";
 import {UsersAdminPanel} from "./UsersAdminPanel/UsersAdminPanel";
 import {LoadingPage} from "./LoadingPage/LoadingPage";
+import {ACTION, StoreContext} from "./Storage/Storage";
 import './App.scss';
 
 export interface userCard {
@@ -29,13 +30,13 @@ export interface userCard {
 }
 
 function App() {
-    const [users, setUsers] = useState<userCard[]>([]);
+    const { state, dispatch } = useContext(StoreContext);
 
     const fetchUsers = async () => {
         try {
             await fetch('https://jsonplaceholder.typicode.com/users')
                 .then((response: any) => response.json())
-                .then((data: userCard[]) => setUsers(data));
+                .then((data: userCard[]) => dispatch({action: ACTION.SET_USER, data: data}));
         } catch (error) {
             console.error(error)
         }
@@ -65,8 +66,10 @@ function App() {
                     }
                 })
                 .then((data: userCard) => {
-                    const dataWithCorrectedId = {...data, id: users.length + 1};
-                    setUsers(prevState => [...prevState, dataWithCorrectedId])
+                    const dataWithCorrectedId = {...data, id: state.users.length + 1};
+                    let currentUsers = state.users;
+                    currentUsers.push(dataWithCorrectedId);
+                    dispatch({action: ACTION.SET_USER, data: currentUsers})
                 })
         } catch (error) {
             console.error(error)
@@ -83,9 +86,10 @@ function App() {
                     if (response.status !== 200) {
                         return
                     } else {
-                        setUsers(users.filter(user => {
+                        const filteredUsers = state.users.filter(user => {
                             return user.id !== id;
-                        }))
+                        })
+                        dispatch({action: ACTION.SET_USER, data: filteredUsers})
                     }
                 })
         } catch (error) {
@@ -108,14 +112,15 @@ function App() {
             })
                 .then((response: any) => {
                     if (response.status) {
-                        setUsers(users.map(user => {
+                        const preparedUsers = state.users.map(user => {
                             if (user.id === id) {
                                 return {
                                     ...user, name: name, email: email
                                 }
                             }
                             return user;
-                        }))
+                        })
+                        dispatch({action: ACTION.SET_USER, data: preparedUsers})
                     }
                 })
         } catch (error) {
@@ -128,9 +133,9 @@ function App() {
             <UsersAdminPanel
                 onAddUser={onAddUser}
             />
-            {users.length !== 0 ?
+            {state.users.length !== 0 ?
                 <UsersTemplate
-                    users={users}
+                    users={state.users}
                     onDeleteUser={onDeleteUser}
                     onUpdateUser={onUpdateUser}
                 />
