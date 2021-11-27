@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {UsersTemplate} from "./UsersTemplate/UsersTemplate";
-import {PhotoConstructor} from "./UsersAdminPanel/UsersAdminPanel";
+import {UsersAdminPanel} from "./UsersAdminPanel/UsersAdminPanel";
 import './App.scss';
 
 export interface userCard {
@@ -29,6 +29,7 @@ export interface userCard {
 
 function App() {
     const [users, setUsers] = useState<userCard[]>([]);
+    const [userToChange, setUserToChange] = useState<React.SetStateAction<number | null>>(null);
 
     const fetchUsers = async () => {
         try {
@@ -92,10 +93,49 @@ function App() {
         }
     }
 
+
+    const onUpdateUser = async (id: number, name: string, email: string) => {
+        try {
+            await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                },
+            })
+                .then((response: any) => {
+                    if(response.status) {
+                        setUsers(users.map(user => {
+                            if (user.id === id) {
+                                return {
+                                    ...user, name: name, email: email
+                                }
+                            }
+                            return user;
+                        }))
+                    }
+                    setUserToChange(id);
+                })
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    console.log(users)
     return (
         <div className="App">
-            <PhotoConstructor onAddUser={onAddUser} users={users}/>
-            <UsersTemplate users={users} onDeleteUser={onDeleteUser} />
+            <UsersAdminPanel
+                users={users}
+                onAddUser={onAddUser}
+            />
+            <UsersTemplate
+                users={users}
+                onDeleteUser={onDeleteUser}
+                onUpdateUser={onUpdateUser}
+                userToChange={userToChange}
+            />
         </div>
     );
 }

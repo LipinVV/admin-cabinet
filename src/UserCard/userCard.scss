@@ -1,11 +1,33 @@
 @import "src/App";
 
 .userCard {
-  display: flex;
-  width: 300px;
-  height: 400px;
-  flex-direction: column;
+  display: grid;
+  min-width: 300px;
+  min-height: 400px;
   padding: 10px;
   justify-content: center;
   align-items: center;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  border: 1px solid black;
+}
+
+.userCard__buttons {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.userCard__button {
+  display: flex;
+  height: 30px;
+  width: 90px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.userCard__button:nth-child(4) {
+  width: 180px;
+  margin: 0 auto;
 }

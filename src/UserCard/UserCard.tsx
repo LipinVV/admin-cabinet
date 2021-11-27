@@ -1,27 +1,68 @@
-import React from "react";
+import React, {useState} from "react";
 import {userCard} from "../App";
 import './userCard.scss';
 
-interface userCardProps extends userCard  {
+interface userCardProps extends userCard {
     onDeleteUser: (id: number) => Promise<void>,
+    onUpdateUser: (id: number, name: string, email: string) => Promise<void>,
+    userToChange: React.SetStateAction<number | null>,
 }
 
-export const UserCard = ({name, username, id, email, onDeleteUser}: userCardProps) => {
+export const UserCard = ({name, username, id, email, onDeleteUser, onUpdateUser, userToChange}: userCardProps) => {
 
     const handleDelete = () => {
         return onDeleteUser(id)
     }
 
+    const [newName, setNewName] = useState('');
+    const [newEmail, setNewEmail] = useState('');
+
+    const handleUpdate = () => {
+        return onUpdateUser(id, newName, newEmail);
+    }
+    const [redactorStatus, setRedactorStatus] = useState(false);
+
+    const editNameHandleChanger = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setNewName(event.target.value);
+    }
+
+    const editEmailHandleChanger = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setNewEmail(event.target.value);
+    }
+
     return (
         <div className='userCard'>
-            <span>{id}</span>
-            <span>{name}</span>
-            <span>{username}</span>
-            <span>{email}</span>
-            <span>
-                <button>Изменить</button>
-                <button onClick={handleDelete}>Удалить</button>
+            {!redactorStatus ? <span>{name}</span> :
+                <input
+                    type='text'
+                    value={newName}
+                    onChange={(evt) => editNameHandleChanger(evt)}
+                />
+            }
+            {!redactorStatus ? <span>{email}</span> :
+                <input
+                    type='text'
+                    value={newEmail}
+                    onChange={(evt) => editEmailHandleChanger(evt)}
+                />
+            }
+            <span className='userCard__buttons'>
+                {redactorStatus &&
+                <button
+                    className='userCard__button'
+                    onClick={() => {
+                        handleUpdate();
+                        setRedactorStatus(false);
+                    }}>Сохранить</button>}
+                {!redactorStatus &&
+                <button
+                    className='userCard__button'
+                    onClick={() => setRedactorStatus(true)}>Редактировать
+                </button>
+                }
+                <button className='userCard__button'>Подробнее</button>
             </span>
+            <button className='userCard__button' onClick={handleDelete}>Удалить</button>
         </div>
     )
 }

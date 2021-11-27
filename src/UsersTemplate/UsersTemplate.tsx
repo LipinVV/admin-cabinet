@@ -7,9 +7,11 @@ import './usersTemplate.scss';
 type userProps = {
     users: userCard[],
     onDeleteUser: (id: number) => Promise<void>,
+    onUpdateUser:  (id: number, name: string, email: string) => Promise<void>,
+    userToChange: React.SetStateAction<number | null>,
 }
 
-export const UsersTemplate = ({users, onDeleteUser}: userProps) => {
+export const UsersTemplate = ({users, onDeleteUser, onUpdateUser, userToChange}: userProps) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const PAGE_SIZE = 4;
@@ -72,6 +74,8 @@ export const UsersTemplate = ({users, onDeleteUser}: userProps) => {
                             website={user.website}
                             company={user.company}
                             onDeleteUser={onDeleteUser}
+                            onUpdateUser={onUpdateUser}
+                            userToChange={userToChange}
                         />
                     )
                 })}

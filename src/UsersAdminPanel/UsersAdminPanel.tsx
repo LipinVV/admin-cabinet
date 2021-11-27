@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export const PhotoConstructor = ({onAddUser}: any) => {
+export const UsersAdminPanel = ({onAddUser}: any) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const handleSubmit = (event: React.SyntheticEvent) => {
@@ -10,10 +10,10 @@ export const PhotoConstructor = ({onAddUser}: any) => {
 
     return (
         <div>
-            <h1>PhotoRedactor</h1>
+            <h1>Панель администратора</h1>
             <div>
                 <form onSubmit={handleSubmit}>
-                    <h4>Добавить фото</h4>
+                    <h4>Добавить сотрудника</h4>
                     <input
                         onChange={(event) => setName(event.target.value)}
                         placeholder='name'
