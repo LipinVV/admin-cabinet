@@ -1,23 +1,26 @@
 import React, {useState} from "react";
 import {userCard} from "../App";
 import './userCard.scss';
+import {UserModalPage} from "../UserModalPage/UserModalPage";
 
-interface userCardProps extends userCard {
+interface userCardProps {
+    userData: userCard,
     onDeleteUser: (id: number) => Promise<void>,
     onUpdateUser: (id: number, name: string, email: string) => Promise<void>,
+    onSelectedUser: (userData: userCard) => void,
 }
 
-export const UserCard = ({name, username, id, email, onDeleteUser, onUpdateUser}: userCardProps) => {
+export const UserCard = ({userData, onDeleteUser, onUpdateUser, onSelectedUser}: userCardProps) => {
 
     const handleDelete = () => {
-        return onDeleteUser(id)
+        return onDeleteUser(userData.id)
     }
 
-    const [newName, setNewName] = useState(name);
-    const [newEmail, setNewEmail] = useState(email);
+    const [newName, setNewName] = useState(userData.name);
+    const [newEmail, setNewEmail] = useState(userData.email);
 
     const handleUpdate = () => {
-        return onUpdateUser(id, newName, newEmail);
+        return onUpdateUser(userData.id, newName, newEmail);
     }
     const [redactorStatus, setRedactorStatus] = useState(false);
 
@@ -29,16 +32,20 @@ export const UserCard = ({name, username, id, email, onDeleteUser, onUpdateUser}
         setNewEmail(event.target.value);
     }
 
+    const handleUserModalPage = () => {
+        onSelectedUser(userData)
+    }
+
     return (
         <div className='userCard'>
-            {!redactorStatus ? <span>{name}</span> :
+            {!redactorStatus ? <span>{userData.name}</span> :
                 <input
                     type='text'
                     value={newName}
                     onChange={(evt) => editNameHandleChanger(evt)}
                 />
             }
-            {!redactorStatus ? <span>{email}</span> :
+            {!redactorStatus ? <span>{userData.email}</span> :
                 <input
                     type='text'
                     value={newEmail}
@@ -61,7 +68,7 @@ export const UserCard = ({name, username, id, email, onDeleteUser, onUpdateUser}
                     onClick={() => setRedactorStatus(true)}>Редактировать
                 </button>
                 }
-                <button className='userCard__button'>Подробнее</button>
+                <button onClick={handleUserModalPage} className='userCard__button'>Подробнее</button>
             </span>
             <button className='userCard__button' onClick={handleDelete}>Удалить</button>
         </div>

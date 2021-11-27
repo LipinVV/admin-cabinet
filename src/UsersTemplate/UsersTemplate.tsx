@@ -3,6 +3,7 @@ import {userCard} from "../App";
 import {UserCard} from "../UserCard/UserCard";
 import {Pagination} from "../Pagination/Pagination";
 import './usersTemplate.scss';
+import {UserModalPage} from "../UserModalPage/UserModalPage";
 
 type userProps = {
     users: userCard[],
@@ -50,6 +51,16 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) =>
         setFilteredUsers(filteredArray);
     }
 
+    const [selectedUserData, setSelectedUserData] = useState<userCard | undefined>(undefined);
+
+    const onSelectedUser = (userData: userCard) => {
+        setSelectedUserData(userData)
+    }
+
+    const onCloseSelectedUser = () => {
+        setSelectedUserData(undefined)
+    }
+
     return (
         <div className=''>
             <h1>Поиск сотрудников</h1>
@@ -64,18 +75,11 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) =>
                 {currentUsersOnThePage.map((user: userCard) => {
                     return (
                         <UserCard
-                            id={user.id}
                             key={user.id}
-                            geo={user.geo}
-                            name={user.name}
-                            email={user.email}
-                            phone={user.phone}
-                            website={user.website}
-                            address={user.address}
-                            company={user.company}
-                            username={user.username}
+                            userData={user}
                             onDeleteUser={onDeleteUser}
                             onUpdateUser={onUpdateUser}
+                            onSelectedUser={onSelectedUser}
                         />
                     )
                 })}
@@ -87,6 +91,7 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) =>
                 indexOfLastItem={indexOfLastItem}
                 users={users}
             />
+            {selectedUserData && <UserModalPage userData={selectedUserData} onClose={onCloseSelectedUser}/>}
         </div>
     )
 }

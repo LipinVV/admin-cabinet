@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {UsersTemplate} from "./UsersTemplate/UsersTemplate";
 import {UsersAdminPanel} from "./UsersAdminPanel/UsersAdminPanel";
-import './App.scss';
 import {LoadingPage} from "./LoadingPage/LoadingPage";
+import './App.scss';
 
 export interface userCard {
     id: number,
