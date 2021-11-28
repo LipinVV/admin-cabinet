@@ -33,7 +33,22 @@
 }
 
 .users-template__input {
-  padding-left: 10px;
   width: 100%;
+  height: 100%;
+  font-size: $medium-font;
+  border: none;
+  border-bottom: 2px solid $border-main;
+  padding-left: 10px;
   outline: none;
+
+  @media screen and (min-width: $mobileDevice) {
+    height: 30px;
+    font-size: $medium-font;
+    line-height: 35px;
+  }
+
+  &:focus {
+    background-color: $input-focused;
+    color: $font-black;
+  }
 }

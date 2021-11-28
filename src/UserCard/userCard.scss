@@ -16,6 +16,20 @@
   }
 }
 
+.user-card__user-credentials {
+  display: flex;
+  font-size: $average-font;
+  font-weight: 600;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.user-card__user-credentials:nth-child(2) {
+  font-size: $small-font;
+  padding-left: 0;
+  font-weight: 100;
+}
+
 .user-card__label {
   @media screen and (min-width: $mobileDevice) {
     min-height: 35px;

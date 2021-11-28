@@ -37,7 +37,7 @@ export const UserCard = ({userData, onDeleteUser, onUpdateUser, onSelectedUser}:
 
     return (
         <div className='user-card'>
-            {!redactorStatus ? <span>{userData.name}</span> :
+            {!redactorStatus ? <p className='user-card__user-credentials'>{userData.name}</p> :
                 <label className='user-card__label'>
                     <input
                         className='user-card__input'
@@ -47,7 +47,7 @@ export const UserCard = ({userData, onDeleteUser, onUpdateUser, onSelectedUser}:
                     />
                 </label>
             }
-            {!redactorStatus ? <span>{userData.email}</span> :
+            {!redactorStatus ? <p className='user-card__user-credentials'>{userData.email}</p> :
                 <label className='user-card__label'>
                     <input
                         className='user-card__input'
