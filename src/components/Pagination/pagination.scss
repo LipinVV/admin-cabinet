@@ -1,0 +1,42 @@
+@import "../../App";
+
+.pagination__current-page {
+  margin-bottom: 20px;
+  text-align: center;
+
+  @media screen and (min-width: $mobileDevice) {
+    font-size: $medium-font;
+  }
+}
+
+.pagination__control-buttons {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pagination__control-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $normal-border-radius;
+  cursor: pointer;
+  border: none;
+  background-color: $button-pagination;
+  color: $font-white;
+
+  &:disabled {
+    background-color: $button-disabled;
+    color: $font-black;
+    cursor: not-allowed;
+  }
+
+  @media screen and (min-width: $mobileDevice) {
+    height: 30px;
+    width: 100px;
+    font-size: $small-font;
+    font-weight: 600;
+  }
+}

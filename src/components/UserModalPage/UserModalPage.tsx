@@ -1,8 +1,8 @@
-import React, {useContext, useState} from "react";
-import {userCard} from "../App";
+import React, {useContext, useState} from 'react';
+import {userCard} from '../../services/user';
 import './userModalPage.scss';
-import {ACTION, StoreContext} from "../Storage/Storage";
-import {taskType} from "../services/tasks";
+import {ACTION, StoreContext} from '../../Storage/Storage';
+import {taskType} from '../../services/tasks';
 
 type userModalPageProps = {
     userData: userCard,

@@ -1,4 +1,4 @@
-@import "src/App";
+@import "../../App";
 
 .users-template {
   display: grid;
@@ -14,15 +14,6 @@
 
   @media screen and (min-width: $mobileDevice) {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-.users-template__header {
-  text-align: center;
-
-  @media screen and (min-width: $mobileDevice) {
-    font-size: $header-mobile-font;
   }
 }
 

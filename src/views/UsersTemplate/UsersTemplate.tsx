@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from "react";
-import {userCard} from "../App";
-import {UserCard} from "../UserCard/UserCard";
-import {Pagination} from "../Pagination/Pagination";
-import {UserModalPage} from "../UserModalPage/UserModalPage";
+import React, {useState, useEffect} from 'react';
+import {userCard} from '../../services/user';
+import {UserCard} from '../../components/UserCard/UserCard';
+import {Pagination} from '../../components/Pagination/Pagination';
+import {UserModalPage} from '../../components/UserModalPage/UserModalPage';
 import './usersTemplate.scss';
 
 type userProps = {
@@ -61,7 +61,6 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) =>
 
     return (
         <div className='users-template'>
-            <h1 className='users-template__header'>Поиск сотрудников</h1>
             <label className='users-template__label'>
                 <input
                     className='users-template__input'

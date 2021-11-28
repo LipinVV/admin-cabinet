@@ -14,6 +14,7 @@ $font-white: #FFFFFF;
 $border-main: #000000;
 $button-enabled: #1976d2;
 $button-disabled: #ede8e4;
+$button-pagination: #000000;
 $button-hovered: #8ac926;
 $input-focused: #81c8ee;
 $input-filled:rgba(253, 253, 253, 0.5);
@@ -24,6 +25,7 @@ $warning-message: #F05454;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 
   @media screen and (min-width: $mobileDevice) {
     max-width: $mobileDevice;

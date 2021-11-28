@@ -1,6 +1,6 @@
-import React, {useReducer, Dispatch} from "react";
-import {userCard} from "../App";
-import {taskType} from "../services/tasks";
+import React, {useReducer, Dispatch} from 'react';
+import {userCard} from '../services/user';
+import {taskType} from '../services/tasks';
 
 type StateType = {
     users: userCard[],

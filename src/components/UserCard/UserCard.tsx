@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {userCard} from "../App";
+import React, {useState} from 'react';
+import {userCard} from '../../services/user';
 import './userCard.scss';
 
 interface userCardProps {

@@ -1,33 +1,10 @@
 import React, {useContext, useEffect} from 'react';
-import {UsersTemplate} from "./UsersTemplate/UsersTemplate";
-import {UsersAdminPanel} from "./UsersAdminPanel/UsersAdminPanel";
-import {LoadingPage} from "./LoadingPage/LoadingPage";
+import {UsersTemplate} from "./views/UsersTemplate/UsersTemplate";
+import {UsersAdminPanel} from "./views/UsersAdminPanel/UsersAdminPanel";
+import {LoadingPage} from "./components/LoadingPage/LoadingPage";
 import {ACTION, StoreContext} from "./Storage/Storage";
+import {userCard} from "./services/user";
 import './App.scss';
-
-export interface userCard {
-    id: number,
-    name: string,
-    username: string,
-    email: string,
-    address: {
-        street: string,
-        suite: string,
-        city: string,
-        zipcode: number,
-    },
-    geo: {
-        lat: number,
-        lng: number,
-    },
-    phone: number,
-    website: string,
-    company: {
-        name: string,
-        catchphrase: string,
-        bs: string,
-    }
-}
 
 function App() {
     const { state, dispatch } = useContext(StoreContext);

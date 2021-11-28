@@ -1,5 +1,5 @@
-import React from "react";
-import {userCard} from "../App";
+import React from 'react';
+import {userCard} from '../../services/user';
 import './pagination.scss';
 
 type paginationProps = {
@@ -14,7 +14,7 @@ export const Pagination = ({handleClickDecrease, handleClickIncrease, currentPag
 
     return (
         <div className='pagination'>
-            <div className='pagination__current-page'>Вы сейчас на: {currentPage} странице</div>
+            <h1 className='pagination__current-page'>Вы сейчас на {currentPage} странице</h1>
             <section className='pagination__control-buttons'>
                 <button
                     className='pagination__control-button'
