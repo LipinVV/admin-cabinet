@@ -6,6 +6,8 @@ import {ACTION, StoreContext} from "./Storage/Storage";
 import {userCard} from "./services/user";
 import './App.scss';
 
+const PAGE_SIZE: number = 4;
+
 function App() {
     const { state, dispatch } = useContext(StoreContext);
 
@@ -115,9 +117,10 @@ function App() {
                     users={state.users}
                     onDeleteUser={onDeleteUser}
                     onUpdateUser={onUpdateUser}
+                    pageSize={PAGE_SIZE}
                 />
                 :
-                <LoadingPage/>
+                <LoadingPage pageSize={PAGE_SIZE}/>
             }
         </div>
     );

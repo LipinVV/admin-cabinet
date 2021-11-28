@@ -9,14 +9,14 @@ type userProps = {
     users: userCard[],
     onDeleteUser: (id: number) => Promise<void>,
     onUpdateUser:  (id: number, name: string, email: string) => Promise<void>,
+    pageSize: number,
 }
 
-export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) => {
+export const UsersTemplate = ({users, onDeleteUser, onUpdateUser, pageSize}: userProps) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const PAGE_SIZE: number = 4;
 
-    const indexOfLastItem = currentPage * PAGE_SIZE;
-    const indexOfFirstItem = indexOfLastItem - PAGE_SIZE;
+    const indexOfLastItem = currentPage * pageSize;
+    const indexOfFirstItem = indexOfLastItem - pageSize;
     const [filteredUsers, setFilteredUsers] = useState<userCard[]>([]);
     const currentUsersOnThePage = filteredUsers.slice(indexOfFirstItem, indexOfLastItem);
 

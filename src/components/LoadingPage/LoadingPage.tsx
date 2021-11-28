@@ -2,8 +2,12 @@ import React from "react";
 import {Ring} from 'react-spinners-css';
 import './loadingPage.scss';
 
-export const LoadingPage = () => {
-    const loadingTemplate = Array(3).fill('').map((element, index) => index + 1);
+type loadingPageProps = {
+    pageSize: number,
+}
+
+export const LoadingPage = ({pageSize}: loadingPageProps) => {
+    const loadingTemplate = Array(pageSize).fill('').map((element, index) => index + 1);
 
     return (
         <div className='loading-cards'>

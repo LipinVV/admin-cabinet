@@ -17,8 +17,9 @@ $button-disabled: #ede8e4;
 $button-pagination: #000000;
 $button-hovered: #8ac926;
 $input-focused: #81c8ee;
-$input-filled:rgba(253, 253, 253, 0.5);
+$input-filled: rgba(253, 253, 253, 0.5);
 $warning-message: #F05454;
+$loading-card: #7a8688;
 
 .App {
   padding: 20px;
@@ -26,6 +27,7 @@ $warning-message: #F05454;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 
   @media screen and (min-width: $mobileDevice) {
     max-width: $mobileDevice;
