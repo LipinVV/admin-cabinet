@@ -1,11 +1,11 @@
 @import "../../App";
 
 .pagination__current-page {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
 
   @media screen and (min-width: $mobileDevice) {
-    font-size: $medium-font;
+    font-size: $small-font;
   }
 }
 
@@ -14,7 +14,7 @@
   display: flex;
   margin: 0 auto;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .pagination__control-button {
@@ -43,7 +43,7 @@
   }
 
   @media screen and (min-width: $mobileDevice) {
-    height: 30px;
+    height: 25px;
     width: 100px;
     font-size: $small-font;
     font-weight: 600;

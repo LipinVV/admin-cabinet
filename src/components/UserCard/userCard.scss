@@ -20,15 +20,19 @@
   display: flex;
   font-size: $average-font;
   font-weight: 600;
-  padding-left: 10px;
   margin: 0;
+
+  &:nth-child(1) {
+    justify-content: center;
+  }
+
+  &:nth-child(2) {
+    font-size: $small-font;
+    padding-left: 0;
+    font-weight: 100;
+  }
 }
 
-.user-card__user-credentials:nth-child(2) {
-  font-size: $small-font;
-  padding-left: 0;
-  font-weight: 100;
-}
 
 .user-card__label {
   @media screen and (min-width: $mobileDevice) {
@@ -97,14 +101,15 @@
   &:active {
     background-color: $button-active;
   }
-}
 
-.user-card__button:nth-child(3) {
-  grid-column-start: 1;
-  grid-column-end: span 2;
-  min-width: 115px;
-  @media screen and (min-width: $mobileDevice) {
-    height: 25px;
-    padding: 0;
+  &:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    min-width: 115px;
+    @media screen and (min-width: $mobileDevice) {
+      height: 25px;
+      padding: 0;
+    }
   }
 }
+
