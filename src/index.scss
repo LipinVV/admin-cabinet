@@ -1,5 +1,11 @@
+@import "App";
+
 * {
   box-sizing: border-box;
+  input:-webkit-autofill,
+  {
+    -webkit-box-shadow: 0 0 0 30px $input-filled inset;
+  }
 }
 
 body {

@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {userCard} from "../App";
 import './userCard.scss';
-import {UserModalPage} from "../UserModalPage/UserModalPage";
 
 interface userCardProps {
     userData: userCard,

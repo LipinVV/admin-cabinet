@@ -69,7 +69,7 @@ function App() {
                     const dataWithCorrectedId = {...data, id: state.users.length + 1};
                     let currentUsers = state.users;
                     currentUsers.push(dataWithCorrectedId);
-                    dispatch({action: ACTION.SET_USER, data: currentUsers})
+                    dispatch({action: ACTION.SET_USER, data: currentUsers});
                 })
         } catch (error) {
             console.error(error)
@@ -89,7 +89,7 @@ function App() {
                         const filteredUsers = state.users.filter(user => {
                             return user.id !== id;
                         })
-                        dispatch({action: ACTION.SET_USER, data: filteredUsers})
+                        dispatch({action: ACTION.SET_USER, data: filteredUsers});
                     }
                 })
         } catch (error) {
@@ -120,7 +120,7 @@ function App() {
                             }
                             return user;
                         })
-                        dispatch({action: ACTION.SET_USER, data: preparedUsers})
+                        dispatch({action: ACTION.SET_USER, data: preparedUsers});
                     }
                 })
         } catch (error) {

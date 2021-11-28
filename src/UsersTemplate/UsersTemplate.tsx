@@ -2,8 +2,8 @@ import React, {useState, useEffect} from "react";
 import {userCard} from "../App";
 import {UserCard} from "../UserCard/UserCard";
 import {Pagination} from "../Pagination/Pagination";
-import './usersTemplate.scss';
 import {UserModalPage} from "../UserModalPage/UserModalPage";
+import './usersTemplate.scss';
 
 type userProps = {
     users: userCard[],
@@ -29,7 +29,7 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) =>
     }
 
     useEffect(() => {
-        setFilteredUsers(users)
+        setFilteredUsers(users);
     }, [users])
 
     useEffect(() => {
@@ -37,7 +37,6 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) =>
             setCurrentPage(1);
         }
     }, [currentUsersOnThePage])
-    console.log(currentUsersOnThePage.length, PAGE_SIZE)
 
     const inputFilterHandler = (inputValue: string, allUsers: userCard[]) => {
         const filteredArray = allUsers.filter((user: userCard) => {

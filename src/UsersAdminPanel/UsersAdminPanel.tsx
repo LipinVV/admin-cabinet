@@ -1,8 +1,13 @@
 import React, {useState} from "react";
+import './usersAdminPanel.scss';
 
-export const UsersAdminPanel = ({onAddUser}: any) => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+type usersAdminPanelProps = {
+    onAddUser: (name: string, email: string) => Promise<void>,
+}
+
+export const UsersAdminPanel = ({onAddUser}: usersAdminPanelProps) => {
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
     const handleSubmit = (event: React.SyntheticEvent) => {
         event.preventDefault();
         onAddUser(name, email);
@@ -10,32 +15,49 @@ export const UsersAdminPanel = ({onAddUser}: any) => {
         setEmail('');
     }
 
+    const errors: string[] = (['минимальная длина имени - 3 буквы', 'введите корректный формат email']);
+
+    const userDataCondition = (name: string, email: string) => {
+        return name.length < 4 || !email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+    }
+
     return (
-        <div>
-            <h1>Панель администратора</h1>
-            <div>
-                <form onSubmit={handleSubmit}>
+        <div className='admin-panel'>
+            <h1 className='admin-panel__header'>Панель администратора</h1>
+            <form
+                className='admin-panel__form'
+                onSubmit={handleSubmit}
+            >
+                <label className='admin-panel__label'>
                     <input
+                        className='admin-panel__input'
                         value={name}
                         onChange={(event) => setName(event.target.value)}
-                        placeholder='name'
+                        placeholder='имя сотрудника'
                         type='text'
                         name='name'
                     />
+                </label>
+                {name.length < 4 && name.length > 0 && <span className='admin-panel__warning'>{errors[0]}</span>}
+                <label className='admin-panel__label'>
                     <input
+                        className='admin-panel__input'
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
-                        placeholder='email'
+                        placeholder='email сотрудника'
                         type='text'
                         name='email'/>
-                    <button
-                        type='button'
-                        onClick={(event: React.SyntheticEvent) => {
-                            handleSubmit(event)
-                        }}>Добавить сотрудника
-                    </button>
-                </form>
-            </div>
+                </label>
+                {!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) && email.length > 0 && <span className='admin-panel__warning'>{errors[1]}</span>}
+                <button
+                    className='admin-panel__add-user-button'
+                    disabled={Boolean(userDataCondition(name, email))}
+                    type='submit'
+                    onClick={(event: React.SyntheticEvent) => {
+                        handleSubmit(event)
+                    }}>Добавить сотрудника
+                </button>
+            </form>
         </div>
     )
 }
