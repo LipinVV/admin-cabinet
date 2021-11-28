@@ -21,13 +21,14 @@
   font-size: $average-font;
   font-weight: 600;
   margin: 0;
+  word-wrap: anywhere;
 
   &:nth-child(1) {
     justify-content: center;
   }
 
   &:nth-child(2) {
-    font-size: $small-font;
+    font-size: $super-small-font;
     padding-left: 0;
     font-weight: 100;
   }
