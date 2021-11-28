@@ -54,15 +54,25 @@
   cursor: pointer;
   background-color: $button-enabled;
   color: $font-white;
-  
+  font-weight: 600;
+
   @media screen and (min-width: $mobileDevice) {
     border-radius: $normal-border-radius;
     min-height: 30px;
+  }
+
+  &:hover {
+    background-color: $button-hovered;
+    color: $font-black;
   }
 
   &:disabled {
     background-color: $button-disabled;
     cursor: not-allowed;
     color: $font-black;
+  }
+
+  &:active {
+    background-color: $button-active;
   }
 }

@@ -27,10 +27,19 @@
   background-color: $button-pagination;
   color: $font-white;
 
+  &:hover {
+    background-color: $button-hovered;
+    color: $font-black;
+  }
+
   &:disabled {
     background-color: $button-disabled;
     color: $font-black;
     cursor: not-allowed;
+  }
+
+  &:active {
+    background-color: $button-active;
   }
 
   @media screen and (min-width: $mobileDevice) {

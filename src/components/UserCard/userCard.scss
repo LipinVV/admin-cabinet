@@ -90,6 +90,12 @@
 
   &:hover {
     background-color: $button-hovered;
+    color: $font-black;
+    font-weight: 600;
+  }
+
+  &:active {
+    background-color: $button-active;
   }
 }
 
