@@ -36,25 +36,31 @@ export const UserCard = ({userData, onDeleteUser, onUpdateUser, onSelectedUser}:
     }
 
     return (
-        <div className='userCard'>
+        <div className='user-card'>
             {!redactorStatus ? <span>{userData.name}</span> :
-                <input
-                    type='text'
-                    value={newName}
-                    onChange={(evt) => editNameHandleChanger(evt)}
-                />
+                <label className='user-card__label'>
+                    <input
+                        className='user-card__input'
+                        type='text'
+                        value={newName}
+                        onChange={(evt) => editNameHandleChanger(evt)}
+                    />
+                </label>
             }
             {!redactorStatus ? <span>{userData.email}</span> :
-                <input
-                    type='text'
-                    value={newEmail}
-                    onChange={(evt) => editEmailHandleChanger(evt)}
-                />
+                <label className='user-card__label'>
+                    <input
+                        className='user-card__input'
+                        type='text'
+                        value={newEmail}
+                        onChange={(evt) => editEmailHandleChanger(evt)}
+                    />
+                </label>
             }
-            <span className='userCard__buttons'>
+            <div className='user-card__buttons'>
                 {redactorStatus &&
                 <button
-                    className='userCard__button'
+                    className='user-card__button'
                     onClick={() => {
                         handleUpdate();
                         setRedactorStatus(false);
@@ -63,13 +69,19 @@ export const UserCard = ({userData, onDeleteUser, onUpdateUser, onSelectedUser}:
                 }
                 {!redactorStatus &&
                 <button
-                    className='userCard__button'
-                    onClick={() => setRedactorStatus(true)}>Редактировать
+                    className='user-card__button'
+                    onClick={() => setRedactorStatus(true)}>Изменить
                 </button>
                 }
-                <button onClick={handleUserModalPage} className='userCard__button'>Подробнее</button>
-            </span>
-            <button className='userCard__button' onClick={handleDelete}>Удалить</button>
+                <button
+                    onClick={handleUserModalPage}
+                    className='user-card__button'>Задачи
+                </button>
+                <button
+                    className='user-card__button'
+                    onClick={handleDelete}>Удалить
+                </button>
+            </div>
         </div>
     )
 }

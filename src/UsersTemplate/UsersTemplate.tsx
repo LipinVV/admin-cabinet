@@ -12,9 +12,8 @@ type userProps = {
 }
 
 export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) => {
-
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const PAGE_SIZE = 3;
+    const PAGE_SIZE: number = 4;
 
     const indexOfLastItem = currentPage * PAGE_SIZE;
     const indexOfFirstItem = indexOfLastItem - PAGE_SIZE;
@@ -53,24 +52,25 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser}: userProps) =>
     const [selectedUserData, setSelectedUserData] = useState<userCard | undefined>(undefined);
 
     const onSelectedUser = (userData: userCard) => {
-        setSelectedUserData(userData)
+        setSelectedUserData(userData);
     }
 
     const onCloseSelectedUser = () => {
-        setSelectedUserData(undefined)
+        setSelectedUserData(undefined);
     }
 
     return (
-        <div className=''>
-            <h1>Поиск сотрудников</h1>
-            <label className='users__search-input'>
+        <div className='users-template'>
+            <h1 className='users-template__header'>Поиск сотрудников</h1>
+            <label className='users-template__label'>
                 <input
+                    className='users-template__input'
                     type='text'
                     placeholder='Поиск по имени...'
-                    onChange={evt => inputFilterHandler(evt.target.value, users)}
+                    onChange={event => inputFilterHandler(event.target.value, users)}
                 />
             </label>
-            <section className='users'>
+            <section className='users-template__template'>
                 {currentUsersOnThePage.map((user: userCard) => {
                     return (
                         <UserCard

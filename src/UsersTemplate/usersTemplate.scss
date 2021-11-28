@@ -1,11 +1,39 @@
 @import "src/App";
 
-.users {
-  display: flex;
+.users-template {
+  display: grid;
+  grid-gap: 20px;
+  @media screen and (min-width: $mobileDevice) {
+    max-width: $mobileDevice;
+  }
+}
+
+.users-template__template {
+  display: grid;
   grid-gap: 10px;
+
+  @media screen and (min-width: $mobileDevice) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+.users-template__header {
+  text-align: center;
+
+  @media screen and (min-width: $mobileDevice) {
+    font-size: $header-mobile-font;
+  }
+}
+
+.users-template__label {
+  @media screen and (min-width: $mobileDevice) {
+    max-width: $mobileDevice;
+  }
+}
+
+.users-template__input {
+  padding-left: 10px;
   width: 100%;
-  padding: 20px;
-  margin: 0 auto;
-  justify-content: center;
-  flex-wrap: wrap;
+  outline: none;
 }

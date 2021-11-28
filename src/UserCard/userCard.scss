@@ -1,34 +1,90 @@
 @import "src/App";
 
-.userCard {
+.user-card {
   display: grid;
-  min-width: 300px;
-  min-height: 400px;
-  padding: 10px;
   justify-content: center;
   align-items: center;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  border: 1px solid black;
+  grid-template-rows: 1fr 1fr 1fr;
+  border: 3px solid $border-main;
+  border-radius: $normal-border-radius;
+  font-size: 10px;
+
+  @media screen and (min-width: $mobileDevice) {
+    min-width: 120px;
+    max-height: 200px;
+    padding: 5px;
+  }
 }
 
-.userCard__buttons {
-  display: flex;
+.user-card__label {
+  @media screen and (min-width: $mobileDevice) {
+    min-height: 35px;
+    max-width: 120px;
+  }
+
+  &:after {
+    content: 'Измените имя';
+    color: $warning-message;
+
+    @media screen and (min-width: $mobileDevice) {
+      font-size: $small-font;
+    }
+  }
+  &:nth-child(2):after {
+    content: 'Измените email';
+    color: $warning-message;
+
+    @media screen and (min-width: $mobileDevice) {
+      font-size: $small-font;
+    }
+  }
+}
+
+.user-card__input {
+  outline: none;
   width: 100%;
-  gap: 10px;
-  justify-content: space-between;
+  @media screen and (min-width: $mobileDevice) {
+    font-size: $small-font;
+    line-height: $small-font
+  }
 }
 
-.userCard__button {
+.user-card__buttons {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:  1fr 1fr;
+  margin: 0 auto;
+}
+
+.user-card__button {
   display: flex;
-  height: 30px;
-  width: 100px;
-  padding: 15px;
   cursor: pointer;
   justify-content: center;
   align-items: center;
+  border: none;
+  background-color: $button-enabled;
+  color: $font-white;
+  border-radius: $normal-border-radius;
+
+  @media screen and (min-width: $mobileDevice) {
+    height: 30px;
+    padding: 15px;
+    max-width: 55px;
+    font-size: $small-font;
+  }
+
+  &:hover {
+    background-color: $button-hovered;
+  }
 }
 
-.userCard__button:nth-child(4) {
-  width: 180px;
-  margin: 0 auto;
+.user-card__button:nth-child(3) {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  min-width: 115px;
+  @media screen and (min-width: $mobileDevice) {
+    height: 25px;
+    padding: 0;
+  }
 }

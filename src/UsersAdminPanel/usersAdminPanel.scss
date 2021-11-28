@@ -23,9 +23,11 @@
 }
 
 .admin-panel__label {
-  min-height: 35px;
   border-radius: $normal-border-radius;
   border: none;
+  @media screen and (min-width: $mobileDevice) {
+    min-height: 35px;
+  }
 }
 
 .admin-panel__input {
