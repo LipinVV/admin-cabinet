@@ -13,7 +13,13 @@ export const LoadingPage = ({pageSize}: loadingPageProps) => {
         <div className='loading-cards'>
             <h1 className='loading-cards__header'>Загружаем данные</h1>
             <section className='loading-cards__cards'>
-                {loadingTemplate.map(card => <div className='loading-cards__card' key={card}> </div>)}
+                {loadingTemplate.map(card => <div className='loading-cards__card' key={card}>
+                    <span className='loading-cards__card-line'> </span>
+                    <span className='loading-cards__card-line'> </span>
+                    <span className='loading-cards__card-line'> </span>
+                    <span className='loading-cards__card-line'> </span>
+                    <span className='loading-cards__card-line'> </span>
+                </div>)}
             </section>
             <Ring color='gold' className='loading-cards__spinner'/>
         </div>
