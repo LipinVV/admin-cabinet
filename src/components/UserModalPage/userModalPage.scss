@@ -1,16 +1,96 @@
 @import "../../App";
 
-.userModalPage {
+.user-modal-page {
   position: fixed;
   display: flex;
   top: 50%;
   left: 50%;
   background-color: white;
-  border: 1px solid black;
-  width: 500px;
-  height: 400px;
-}
-// array userData -> setArrays()
-.userModalPage__field {
+  flex-direction: column;
+  padding: 20px;
+  border: 5px solid $border-task;
+  gap: 10px;
 
+  @media screen and (min-width: $mobileDevice) {
+    font-size: $small-font;
+    max-width: $mobileDevice;
+    transform: translate(-50%, -50%);
+    min-height: 300px;
+  }
+}
+
+.user-modal-page__header {
+  text-align: center;
+  width: 100%;
+  color: $modal-header;
+}
+
+.user-modal-page__label {
+  display: flex;
+  flex-direction: column;
+  font-size: $medium-font;
+  font-weight: 600;
+}
+
+.user-modal-page__input {
+  min-height: 30px;
+}
+
+.user-modal-page__text-area {
+  resize: none;
+  min-height: 80px;
+
+  @media screen and (min-width: $mobileDevice) {
+    font-size: $medium-font;
+  }
+}
+
+.user-modal-page__create-button,
+.user-modal-page__close-button {
+  background-color: $modal-button;
+  color: $font-black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $normal-border-radius;
+  cursor: pointer;
+  border: 1px solid $border-main;
+
+  &:hover {
+    background-color: $button-hovered;
+    color: $font-black;
+  }
+
+  &:disabled {
+    background-color: $button-disabled;
+    color: $font-black;
+    cursor: not-allowed;
+  }
+
+  &:active {
+    background-color: $button-active;
+  }
+
+  @media screen and (min-width: $mobileDevice) {
+    height: 30px;
+    font-size: $small-font;
+    font-weight: 600;
+  }
+}
+
+.user-modal-page__create-button {
+  background-color: $button-enabled;
+  color: $font-white;
+  border: none;
+}
+
+.user-modal-page__task-description,
+.user-modal-page__task-name {
+  word-wrap: anywhere;
+}
+
+.user-modal-page__tasks {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }

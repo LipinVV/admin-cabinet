@@ -14,6 +14,10 @@
     max-height: 200px;
     padding: 5px;
   }
+
+  &:hover {
+    background-color: $user-card-hovered;
+  }
 }
 
 .user-card__user-credentials {
