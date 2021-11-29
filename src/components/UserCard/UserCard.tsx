@@ -35,6 +35,8 @@ export const UserCard = ({userData, onDeleteUser, onUpdateUser, onSelectedUser}:
         onSelectedUser(userData)
     }
 
+    const [onDeleteConfirmation, setOnDeleteConfirmation] = useState(false);
+
     return (
         <div className='user-card'>
             {!redactorStatus ? <p className='user-card__user-credentials'>{userData.name}</p> :
@@ -60,6 +62,7 @@ export const UserCard = ({userData, onDeleteUser, onUpdateUser, onSelectedUser}:
             <div className='user-card__buttons'>
                 {redactorStatus &&
                 <button
+                    type='button'
                     className='user-card__button'
                     onClick={() => {
                         handleUpdate();
@@ -69,18 +72,31 @@ export const UserCard = ({userData, onDeleteUser, onUpdateUser, onSelectedUser}:
                 }
                 {!redactorStatus &&
                 <button
+                    type='button'
                     className='user-card__button'
                     onClick={() => setRedactorStatus(true)}>Изменить
                 </button>
                 }
                 <button
+                    type='button'
                     onClick={handleUserModalPage}
                     className='user-card__button'>Задачи
                 </button>
-                <button
+                {!onDeleteConfirmation && <button
+                    type='button'
                     className='user-card__button'
-                    onClick={handleDelete}>Удалить
-                </button>
+                    onClick={() => setOnDeleteConfirmation(true)}>Удалить
+                </button>}
+                {onDeleteConfirmation && <div className='user-card__confirmation-buttons'>
+                    <button
+                        className='user-card__confirmation-button'
+                        type='button'
+                        onClick={handleDelete}>Да</button>
+                    <button
+                        className='user-card__confirmation-button'
+                        type='button'
+                        onClick={() =>setOnDeleteConfirmation(false)}>Отмена</button>
+                </div>}
             </div>
         </div>
     )

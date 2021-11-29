@@ -89,11 +89,12 @@
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows:  1fr 1fr;
+  grid-template-rows:  1fr;
   margin: 0 auto;
 }
 
-.user-card__button {
+.user-card__button,
+.user-card__confirmation-button {
   display: flex;
   cursor: pointer;
   justify-content: center;
@@ -143,3 +144,29 @@
   }
 }
 
+.user-card__confirmation-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+
+  @media screen and (min-width: $mobileDevice) {
+    width: 115px;
+    grid-row: 3 span;
+    grid-column: 1 / span 2;
+    max-height: 25px;
+  }
+}
+
+.user-card__confirmation-button {
+  font-weight: 600;
+  height: 25px;
+  padding: 0;
+
+  &:nth-child(1) {
+    background-color: $button-active;
+  }
+
+  &:nth-child(2) {
+    background-color: $warning-message;
+  }
+}
