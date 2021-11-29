@@ -76,3 +76,9 @@
     background-color: $button-active;
   }
 }
+
+.admin-panel__warning {
+  text-align: center;
+  font-size: $small-font;
+  color: $warning-message;
+}

@@ -15,8 +15,7 @@ export const UsersAdminPanel = ({onAddUser}: usersAdminPanelProps) => {
         setEmail('');
     }
 
-    const errors: string[] = (['минимальная длина имени - 3 буквы', 'введите корректный формат email']);
-
+    const errors = {name: 'минимальная длина имени - 3 буквы', email: 'введите корректный формат email'};
     const userDataCondition = (name: string, email: string) => {
         return name.length < 4 || !email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
     }
@@ -38,7 +37,7 @@ export const UsersAdminPanel = ({onAddUser}: usersAdminPanelProps) => {
                         name='name'
                     />
                 </label>
-                {name.length < 4 && name.length > 0 && <span className='admin-panel__warning'>{errors[0]}</span>}
+                {name.length < 4 && name.length > 0 && <span className='admin-panel__warning'>{errors.name}</span>}
                 <label className='admin-panel__label'>
                     <input
                         className='admin-panel__input'
@@ -48,7 +47,7 @@ export const UsersAdminPanel = ({onAddUser}: usersAdminPanelProps) => {
                         type='text'
                         name='email'/>
                 </label>
-                {!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) && email.length > 0 && <span className='admin-panel__warning'>{errors[1]}</span>}
+                {!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) && email.length > 0 && <span className='admin-panel__warning'>{errors.email}</span>}
                 <button
                     className='admin-panel__add-user-button'
                     disabled={Boolean(userDataCondition(name, email))}

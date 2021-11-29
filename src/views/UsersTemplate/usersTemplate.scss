@@ -42,3 +42,12 @@
     color: $font-black;
   }
 }
+
+.users-template__warning {
+  @media screen and (min-width: $mobileDevice) {
+    color: $warning-message;
+    font-size: $average-font;
+    font-weight: 600;
+    text-align: center;
+  }
+}

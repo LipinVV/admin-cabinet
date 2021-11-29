@@ -15,7 +15,7 @@ export const LoadingPage = ({pageSize}: loadingPageProps) => {
             <section className='loading-cards__cards'>
                 {loadingTemplate.map(card => <div className='loading-cards__card' key={card}> </div>)}
             </section>
-            <Ring color='red' className='loading-cards__spinner'/>
+            <Ring color='gold' className='loading-cards__spinner'/>
         </div>
     )
 }

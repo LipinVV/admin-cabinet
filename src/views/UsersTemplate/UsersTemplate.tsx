@@ -82,6 +82,7 @@ export const UsersTemplate = ({users, onDeleteUser, onUpdateUser, pageSize}: use
                     )
                 })}
             </section>
+            {currentUsersOnThePage.length === 0 && <span className='users-template__warning'>По вашему запросу ничего не найдено</span>}
             <Pagination
                 handleClickDecrease={handleClickDecrease}
                 handleClickIncrease={handleClickIncrease}

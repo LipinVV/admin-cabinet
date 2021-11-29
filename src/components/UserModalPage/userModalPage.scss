@@ -23,6 +23,7 @@
   text-align: center;
   width: 100%;
   color: $modal-header;
+  font-size: $large-font;
 }
 
 .user-modal-page__label {
@@ -33,7 +34,10 @@
 }
 
 .user-modal-page__input {
+  border: none;
+  border-bottom: 2px solid $border-main;
   min-height: 30px;
+  outline: none;
 }
 
 .user-modal-page__text-area {
@@ -89,8 +93,12 @@
   word-wrap: anywhere;
 }
 
-.user-modal-page__tasks {
+.user-modal-page__task {
   display: flex;
   gap: 5px;
   flex-direction: column;
+  @media screen and (min-width: $mobileDevice) {
+    padding: 5px;
+    border-bottom: 1px solid  $border-main;
+  }
 }
