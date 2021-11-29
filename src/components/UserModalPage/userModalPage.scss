@@ -17,6 +17,10 @@
     transform: translate(-50%, -50%);
     min-height: 300px;
   }
+
+  @media screen and (min-width: $tabletDevice) {
+    min-width: 50%;
+  }
 }
 
 .user-modal-page__header {
@@ -24,6 +28,10 @@
   width: 100%;
   color: $modal-header;
   font-size: $large-font;
+
+  @media screen and (min-width: $tabletDevice) {
+    font-size: $big-font;
+  }
 }
 
 .user-modal-page__label {
@@ -47,18 +55,23 @@
   @media screen and (min-width: $mobileDevice) {
     font-size: $medium-font;
   }
+
+  @media screen and (min-width: $tabletDevice) {
+    min-height: 120px;
+    margin-top: 5px;
+  }
 }
 
 .user-modal-page__create-button,
 .user-modal-page__close-button {
   background-color: $modal-button;
-  color: $font-black;
+  color: $font-white;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: $normal-border-radius;
   cursor: pointer;
-  border: 1px solid $border-main;
+  border: none;
 
   &:hover {
     background-color: $button-hovered;
@@ -80,12 +93,18 @@
     font-size: $small-font;
     font-weight: 600;
   }
+
+  @media screen and (min-width: $tabletDevice) {
+    height: 35px;
+    font-size: $average-font;
+    min-width: 50%;
+    margin: 0 auto;
+  }
 }
 
 .user-modal-page__create-button {
-  background-color: $button-enabled;
-  color: $font-white;
-  border: none;
+  background-color: $button-active;
+  color: $font-black;
 }
 
 .user-modal-page__task-description,
@@ -97,8 +116,22 @@
   display: flex;
   gap: 5px;
   flex-direction: column;
+
   @media screen and (min-width: $mobileDevice) {
     padding: 5px;
-    border-bottom: 1px solid  $border-main;
+    border-bottom: 1px solid $border-main;
+  }
+
+  @media screen and (min-width: $tabletDevice) {
+    padding: 7px;
+    font-size: $average-font;
+  }
+}
+
+.user-modal-page__warning {
+  color: $warning-message;
+
+  @media screen and (min-width: $tabletDevice) {
+    font-size: $average-font;
   }
 }

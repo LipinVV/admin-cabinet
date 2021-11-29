@@ -13,7 +13,7 @@ export const UserModalPage = ({userData, onClose}: userModalPageProps) => {
     const {state, dispatch} = useContext(StoreContext);
     const tasksByUsers = state.tasks.filter(task => task.userId === userData.id);
     const [task, setTask] = useState<taskType>({name: '', description: '', userId: 0});
-    const errors = {name: 'Укажите минимум 7 символов', description: 'Укажите минимум 10 символов'};
+    const errors = {name: 'Требуется минимум 7 символов', description: 'Требуется минимум 10 символов'};
 
     return (
         <div className='user-modal-page'>

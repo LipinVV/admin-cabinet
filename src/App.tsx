@@ -108,7 +108,8 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="app">
+            <span className='app__background-image'> </span>
             <UsersAdminPanel
                 onAddUser={onAddUser}
             />

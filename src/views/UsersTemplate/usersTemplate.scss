@@ -6,6 +6,14 @@
   @media screen and (min-width: $mobileDevice) {
     max-width: $mobileDevice;
   }
+  @media screen and (min-width: $tabletDevice) {
+    max-width: $tabletDevice;
+  }
+
+  @media screen and (min-width: $desktopDevice) {
+    grid-column: 2;
+    grid-row: 2;
+  }
 }
 
 .users-template__template {
@@ -21,6 +29,11 @@
   @media screen and (min-width: $mobileDevice) {
     max-width: $mobileDevice;
   }
+
+  @media screen and (min-width: $tabletDevice) {
+    min-width: 50%;
+    margin: 0 auto;
+  }
 }
 
 .users-template__input {
@@ -35,6 +48,10 @@
     height: 30px;
     font-size: $average-font;
     line-height: 35px;
+  }
+
+  @media screen and (min-width: $tabletDevice) {
+    font-size: $medium-font;
   }
 
   &:focus {

@@ -1,5 +1,5 @@
 $mobileDevice: 320px;
-$tabletDevice: 768px;
+$tabletDevice: 660px;
 $desktopDevice: 1024px;
 
 $header-mobile-font: 20px;
@@ -8,8 +8,10 @@ $small-font: 10px;
 $average-font: 12px;
 $medium-font: 15px;
 $large-font: 20px;
+$big-font: 25px;
 
 $normal-border-radius: 5px;
+$average-border-radius: 8px;
 
 $font-black: #000000;
 $font-white: #FFFFFF;
@@ -27,9 +29,9 @@ $loading-card: #7a8688;
 $loading-card-line: #eae2e2;
 $user-card-hovered: #83beff;
 $modal-header: #0169d0;
-$modal-button: #808080FF;
+$modal-button: #0e77d4;
 
-.App {
+.app {
   padding: 20px;
   margin: 0 auto;
   display: flex;
@@ -41,5 +43,30 @@ $modal-button: #808080FF;
     max-width: $mobileDevice;
     gap: 30px;
   }
+
+  @media screen and (min-width: $tabletDevice) {
+    max-width: $tabletDevice;
+  }
+
+  @media screen and (min-width: $desktopDevice) {
+    max-width: $desktopDevice;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.3fr 1fr;
+    grid-gap: 20px;
+  }
 }
 
+.app__background-image {
+  display: none;
+
+  @media screen and (min-width: $desktopDevice) {
+    display: grid;
+    background: url('./img/main-bg3.jpg') no-repeat center center;
+    background-size: cover;
+    background-position-x: -300px;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    height: 100%;
+  }
+}

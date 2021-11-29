@@ -15,6 +15,11 @@
     padding: 5px;
   }
 
+  @media screen and (min-width: $tabletDevice) {
+    border: 5px solid $border-main;
+    border-radius: $average-border-radius;
+  }
+
   &:hover {
     background-color: $user-card-hovered;
   }
@@ -27,6 +32,10 @@
   margin: 0;
   word-wrap: anywhere;
 
+  @media screen and (min-width: $tabletDevice) {
+    font-size: $medium-font;
+  }
+
   &:nth-child(1) {
     justify-content: center;
   }
@@ -35,6 +44,10 @@
     font-size: $super-small-font;
     padding-left: 0;
     font-weight: 100;
+
+    @media screen and (min-width: $tabletDevice) {
+      font-size: $small-font;
+    }
   }
 }
 
@@ -97,6 +110,12 @@
     font-size: $small-font;
   }
 
+  @media screen and (min-width: $tabletDevice) {
+    font-size: $average-font;
+    height: 40px;
+    max-width: 75px;
+  }
+
   &:hover {
     background-color: $button-hovered;
     color: $font-black;
@@ -111,9 +130,15 @@
     grid-column-start: 1;
     grid-column-end: span 2;
     min-width: 115px;
+
     @media screen and (min-width: $mobileDevice) {
       height: 25px;
       padding: 0;
+    }
+
+    @media screen and (min-width: $tabletDevice) {
+      height: 35px;
+      min-width: 155px;
     }
   }
 }
