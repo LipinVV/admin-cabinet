@@ -35,6 +35,7 @@ export const UserModalPage = ({userData, onClose}: userModalPageProps) => {
             </label>
             {task.description.length < 10 && task.description.length > 0 &&<span className='user-modal-page__warning'>{errors.description}</span>}
             <button
+                type='button'
                 disabled={task.name.length < 7 || task.description.length < 10}
                 className='user-modal-page__create-button'
                 onClick={() => {
@@ -54,6 +55,7 @@ export const UserModalPage = ({userData, onClose}: userModalPageProps) => {
                 )
             })}
             <button
+                type='button'
                 className='user-modal-page__close-button'
                 onClick={onClose}>Закрыть
             </button>

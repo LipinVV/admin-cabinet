@@ -1,7 +1,8 @@
-@import "App";
+@import 'app';
 
 * {
   box-sizing: border-box;
+
   input:-webkit-autofill,
   {
     -webkit-box-shadow: 0 0 0 30px $input-filled inset;
@@ -11,13 +12,13 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Arial', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }

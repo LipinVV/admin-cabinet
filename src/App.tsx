@@ -1,10 +1,10 @@
 import React, {useContext, useEffect} from 'react';
-import {UsersTemplate} from "./views/UsersTemplate/UsersTemplate";
-import {UsersAdminPanel} from "./views/UsersAdminPanel/UsersAdminPanel";
-import {LoadingPage} from "./components/LoadingPage/LoadingPage";
-import {ACTION, StoreContext} from "./Storage/Storage";
-import {userCard} from "./services/user";
-import './App.scss';
+import {UsersTemplate} from './views/UsersTemplate/UsersTemplate';
+import {UsersAdminPanel} from './views/UsersAdminPanel/UsersAdminPanel';
+import {LoadingPage} from './components/LoadingPage/LoadingPage';
+import {ACTION, StoreContext} from './Storage/Storage';
+import {userCard} from './services/user';
+import './app.scss';
 
 const PAGE_SIZE: number = 4;
 
