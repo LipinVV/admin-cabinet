@@ -17,7 +17,7 @@ function App() {
                 .then((response: any) => response.json())
                 .then((data: userCard[]) => dispatch({action: ACTION.SET_USER, data: data}));
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
     }
 
