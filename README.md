@@ -1,9 +1,9 @@
 ## About the App:
-'Advent' is a demonstration part of an administrator's online cabinet.
+'Advent' is a demonstration of the online cabinet.
 
 Features: 
 1) loading screen when the data from the server is absent;
-2) section to create a new user;
+2) section to create a new users;
 3) global store (by React Context) to keep the data;
 4) searching input by the name of the user;
 5) pagination;
