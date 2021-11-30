@@ -47,7 +47,7 @@ const reducer = (currentState: StateType, payLoad: ActionType): StateType => {
     }
 }
 
-export const Storage = ({children}: StorageProps) => {
+export const Store = ({children}: StorageProps) => {
     const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
     return (

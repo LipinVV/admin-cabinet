@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {Storage} from './storage/Storage';
+import {Store} from './store/Store';
 import './index.scss';
 
 ReactDOM.render(
     <React.StrictMode>
-        <Storage>
+        <Store>
             <App/>
-        </Storage>
+        </Store>
     </React.StrictMode>,
     document.getElementById('root')
 );

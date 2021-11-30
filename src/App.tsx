@@ -2,7 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import {UsersTemplate} from './views/UsersTemplate/UsersTemplate';
 import {UsersAdminPanel} from './views/UsersAdminPanel/UsersAdminPanel';
 import {LoadingPage} from './components/LoadingPage/LoadingPage';
-import {ACTION, StoreContext} from './storage/Storage';
+import {ACTION, StoreContext} from './store/Store';
 import {userCard} from './services/user';
 import './app.scss';
 
