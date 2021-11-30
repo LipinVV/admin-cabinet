@@ -9,6 +9,8 @@ $average-font: 12px;
 $medium-font: 15px;
 $large-font: 20px;
 $big-font: 25px;
+$label-font-style: 'Bookman Old Style', serif;
+$label-font-size: 40px;
 
 $normal-border-radius: 5px;
 $average-border-radius: 8px;
@@ -62,11 +64,35 @@ $modal-button: #0e77d4;
 
   @media screen and (min-width: $desktopDevice) {
     display: grid;
-    background: url('./img/main-bg.jpg') no-repeat center center blue;
+    background: url('./img/main-bg.jpg') no-repeat center center fixed $modal-header;
     background-size: cover;
-    background-position-x: -300px;
     grid-column: 1;
-    grid-row: 1 / span 2;
+    grid-row: 2;
     height: 100%;
+  }
+}
+
+.app__logo {
+  display: none;
+
+  @media screen and (min-width: $desktopDevice) {
+    display: flex;
+
+    font-family: $label-font-style;
+    font-size: $label-font-size;
+    position: relative;
+    align-items: flex-end;
+    width: 100%;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: flex;
+      background: url('./img/label.svg') no-repeat;
+      width: 120px;
+      height: 120px;
+      left: 0;
+      top: 0;
+    }
   }
 }

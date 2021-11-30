@@ -58,6 +58,11 @@
     max-width: 120px;
   }
 
+  @media screen and (min-width: $tabletDevice) {
+    min-height: 40px;
+    max-width: 155px;
+  }
+
   &:after {
     content: 'Измените имя';
     color: $warning-message;
@@ -66,6 +71,7 @@
       font-size: $small-font;
     }
   }
+
   &:nth-child(2):after {
     content: 'Измените email';
     color: $warning-message;
@@ -79,9 +85,16 @@
 .user-card__input {
   outline: none;
   width: 100%;
+
   @media screen and (min-width: $mobileDevice) {
     font-size: $small-font;
-    line-height: $small-font
+    line-height: $small-font;
+  }
+
+  @media screen and (min-width: $tabletDevice) {
+    font-size: $average-font;
+    line-height: $average-font;
+    height: 22px;
   }
 }
 
@@ -113,7 +126,7 @@
 
   @media screen and (min-width: $tabletDevice) {
     font-size: $average-font;
-    height: 40px;
+    height: 35px;
     max-width: 75px;
   }
 
@@ -150,17 +163,28 @@
   grid-gap: 5px;
 
   @media screen and (min-width: $mobileDevice) {
-    width: 115px;
+    width: 100%;
     grid-row: 3 span;
     grid-column: 1 / span 2;
     max-height: 25px;
+  }
+
+  @media screen and (min-width: $tabletDevice) {
+    max-height: 35px;
   }
 }
 
 .user-card__confirmation-button {
   font-weight: 600;
-  height: 25px;
   padding: 0;
+
+  @media screen and (min-width: $mobileDevice) {
+    max-height: 25px;
+  }
+
+  @media screen and (min-width: $tabletDevice) {
+    max-height: 35px;
+  }
 
   &:nth-child(1) {
     background-color: $button-active;

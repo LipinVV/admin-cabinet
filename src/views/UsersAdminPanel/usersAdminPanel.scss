@@ -8,22 +8,83 @@
   border-radius: $average-border-radius;
   padding: 10px;
 
+  @media screen and (min-width: $tabletDevice) {
+    justify-items: end;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: flex;
+      background: url('./../../img/label.svg') no-repeat;
+      width: 100px;
+      height: 100px;
+      left: 20px;
+      top: 10px;
+    }
+
+    &:after {
+      position: absolute;
+      content: 'Advent';
+      left: 20px;
+      bottom: 10px;
+      font-family: $label-font-style;
+      font-size: $large-font;
+      font-weight: 600;
+    }
+  }
+
   @media screen and (min-width: $desktopDevice) {
+    justify-items: center;
     grid-column: 2;
     grid-row: 1;
+
+    &:after {
+      display: none;
+    }
+
+    &:before {
+      display: none;
+    }
   }
 }
 
 .admin-panel__header {
-  text-align: center;
   margin: 0;
 
   @media screen and (min-width: $mobileDevice) {
-    font-size: $header-mobile-font;
+    position: relative;
+    font-size: $medium-font;
+    text-align: right;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: flex;
+      background: url('./../../img/label.svg') no-repeat;
+      width: 30px;
+      height: 30px;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  @media screen and (min-width: $tabletDevice) {
+    padding-right: 65px;
+    text-align: center;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $desktopDevice) {
+    padding-right: 0;
   }
 }
 
 .admin-panel__form {
+  position: relative;
   display: flex;
   flex-direction: column;
   @media screen and (min-width: $mobileDevice) {

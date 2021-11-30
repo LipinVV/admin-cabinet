@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {userCard} from '../../services/user';
 import {UserCard} from '../../components/UserCard/UserCard';
 import {Pagination} from '../../components/Pagination/Pagination';
