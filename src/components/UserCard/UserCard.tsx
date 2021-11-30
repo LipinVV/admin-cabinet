@@ -32,7 +32,7 @@ export const UserCard = ({userData, onDeleteUser, onUpdateUser, onSelectedUser}:
     }
 
     const handleUserModalPage = () => {
-        onSelectedUser(userData)
+        onSelectedUser(userData);
     }
 
     const [onDeleteConfirmation, setOnDeleteConfirmation] = useState(false);
