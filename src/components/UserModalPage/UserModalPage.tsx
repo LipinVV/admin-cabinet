@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {userCard} from '../../services/user';
-import {ACTION, StoreContext} from '../../Storage/Storage';
+import {ACTION, StoreContext} from '../../storage/Storage';
 import {taskType} from '../../services/tasks';
 import './userModalPage.scss';
 

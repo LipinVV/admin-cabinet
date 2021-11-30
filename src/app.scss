@@ -9,7 +9,7 @@ $average-font: 12px;
 $medium-font: 15px;
 $large-font: 20px;
 $big-font: 25px;
-$label-font-style: 'Bookman Old Style', serif;
+$label-font-family: 'Bookman Old Style', serif;
 $label-font-size: 40px;
 
 $normal-border-radius: 5px;
@@ -77,7 +77,7 @@ $modal-button: #0e77d4;
 
   @media screen and (min-width: $desktopDevice) {
     display: flex;
-    font-family: $label-font-style;
+    font-family: $label-font-family;
     font-size: $label-font-size;
     position: relative;
     align-items: flex-end;
